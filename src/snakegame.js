@@ -26,10 +26,10 @@ const SnakeGame = () => {
         case "ArrowRight":
           setDirection("RIGHT");
           break;
-        case " ": 
+        case " ": // Spacebar to pause
           setIsPaused((prev) => !prev);
           break;
-        case "r": 
+        case "r": // 'R' key to restart
           restartGame();
           break;
         default:
@@ -110,6 +110,7 @@ const SnakeGame = () => {
           border: "2px solid black",
           width: "max-content",
           margin: "auto",
+          touchAction: "none"
         }}
       >
         {[...Array(gridSize * gridSize)].map((_, i) => {
@@ -129,6 +130,12 @@ const SnakeGame = () => {
             ></div>
           );
         })}
+      </div>
+      <div style={{ marginTop: "10px" }}>
+        <button onClick={() => setDirection("UP")}>⬆️</button><br />
+        <button onClick={() => setDirection("LEFT")}>⬅️</button>
+        <button onClick={() => setDirection("DOWN")}>⬇️</button>
+        <button onClick={() => setDirection("RIGHT")}>➡️</button>
       </div>
     </div>
   );
